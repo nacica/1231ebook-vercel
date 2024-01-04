@@ -27,7 +27,7 @@ async function Login() {
             <button
             onClick={(e) =>  {e.preventDefault() ; signIn(provider.id, { callbackUrl: "/" })}}
              className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded flex items-center justify-center w-full">
-              <svg
+              <svg 
                 role="img"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
