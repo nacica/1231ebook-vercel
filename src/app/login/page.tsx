@@ -5,11 +5,11 @@ import { signIn } from "next-auth/react";
 // eslint-disable-next-line @next/next/no-async-client-component
 async function Login() {
     const providers = await getProviders().then((res)=>{
-        // console.log(res);  
+        console.log(res);  
         return res;
     }    );
 
-    
+
   return (
     <div className="flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -25,7 +25,7 @@ async function Login() {
               return(
                 <div key={provider.id} className="text-center">
             <button
-            onClick={() => signIn(provider.id, { callbackUrl: "/" })}
+            onClick={(e) =>  {e.preventDefault() ; signIn(provider.id, { callbackUrl: "/" })}}
              className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded flex items-center justify-center w-full">
               <svg
                 role="img"
