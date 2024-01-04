@@ -12,6 +12,10 @@ datasource db {
   shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
+
+
+
+
 model Account {
   id                 String  @id @default(cuid())
   userId             String
@@ -30,6 +34,8 @@ model Account {
 
   @@unique([provider, providerAccountId])
 }
+
+
 
 model Session {
   id           String   @id @default(cuid())
