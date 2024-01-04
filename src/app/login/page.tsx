@@ -1,13 +1,13 @@
 "use client";
 import { getProviders } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 // eslint-disable-next-line @next/next/no-async-client-component
 async function Login() {
     const providers = await getProviders().then((res)=>{
-        console.log(res);
+        // console.log(res);
         return res;
     }    );
-
 
   return (
     <div className="flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
@@ -18,9 +18,14 @@ async function Login() {
           </h2>
         </div>
         <div className="mt-8 space-y-6">
-          
-          <div className="text-center">
-            <button className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded flex items-center justify-center w-full">
+
+         {providers &&
+            Object.values(providers).map((provider) => {
+              return(
+                <div key={provider.id} className="text-center">
+            <button
+            onClick={() => signIn(provider.id, { callbackUrl: "/" })}
+             className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded flex items-center justify-center w-full">
               <svg
                 role="img"
                 viewBox="0 0 24 24"
@@ -33,7 +38,12 @@ async function Login() {
               </svg>
               <span>Githubでログイン</span>
             </button>
-          </div>
+                </div>
+                );
+              }
+            )
+          } 
+
         </div>
       </div>
     </div>
