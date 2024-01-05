@@ -1,7 +1,7 @@
 // "use client";
 import Book from "./components/Book";
 import { getAllBooks } from "./lib/microcms/client";
-
+import { BookType } from "./types/types";
 
 
 
@@ -59,7 +59,7 @@ import { getAllBooks } from "./lib/microcms/client";
 export default async function Home() {
 
   const {contents} = await getAllBooks();
-  console.log(contents);
+
 
 
 
@@ -69,7 +69,7 @@ export default async function Home() {
         <h2 className="text-center w-full font-bold text-3xl mb-2">
           Book Commerce
         </h2>
-        {contents.map((book) => (
+        {contents.map((book:BookType) => (
           <Book key={book.id} book={book} />
         ))}
       </main>
