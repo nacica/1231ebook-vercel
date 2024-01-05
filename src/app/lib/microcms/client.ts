@@ -7,7 +7,7 @@ export const client = createClient({
 
 export const getAllBooks = async () => {
     const allBooks = await client.get({
-      endpoint: "bookcommerce",
+      endpoint: "book-commerce",
       queries: {
         offset: 0,
         limit: 10,
