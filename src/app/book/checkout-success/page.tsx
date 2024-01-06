@@ -4,12 +4,13 @@ import React from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useEffect } from "react";
+import { useState } from "react";
 
 
 
 const PurchaseSuccess = () => {
 
-  // const [bookUrl, setBookUrl] = useState(null);
+  const [bookUrl, setBookUrl] = useState(null);
 
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("session_id");
@@ -29,7 +30,7 @@ const PurchaseSuccess = () => {
           );
           const data = await response.json();
   //         console.log(data);
-  //         setBookUrl(data.purchase.bookId);
+          setBookUrl(data.purchase.bookId);
         } catch (error) {
           console.error("Error fetching data: ", error);
         }
@@ -38,17 +39,6 @@ const PurchaseSuccess = () => {
 
     fetchData();
   }, []);
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -64,7 +54,7 @@ const PurchaseSuccess = () => {
         </p>
         <div className="mt-6 text-center">
           <Link
-            href={`/`}
+            href={`/book/${bookUrl}`}
             className="text-indigo-600 hover:text-indigo-800 transition duration-300"
           >
             購入した記事を読む
