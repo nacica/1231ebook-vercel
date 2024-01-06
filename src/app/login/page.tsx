@@ -25,8 +25,9 @@ async function Login() {
               return(
                 <div key={provider.id} className="text-center">
             <button
-            onClick={(e) =>  {e.preventDefault() ; signIn(provider.id, { callbackUrl: "/" })}}
-             className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded flex items-center justify-center w-full">
+                onClick={() =>  { signIn(provider.id, { callbackUrl: "/" })}}
+                className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded flex items-center justify-center w-full"
+                >
               <svg 
                 role="img"
                 viewBox="0 0 24 24"

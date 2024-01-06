@@ -10,6 +10,6 @@ if(!globalForPrisma.prisma){
     globalForPrisma.prisma=new PrismaClient();
 }
 
-prisma=globalForPrisma.prisma;
+prisma = globalForPrisma.prisma;
 
 export default prisma;

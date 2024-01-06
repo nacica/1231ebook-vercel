@@ -60,9 +60,6 @@ export default async function Home() {
 
   const {contents} = await getAllBooks();
 
-
-
-
   return (
     <>
       <main className="flex flex-wrap justify-center items-center md:mt-32 mt-20">
