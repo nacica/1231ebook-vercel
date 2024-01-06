@@ -16,8 +16,46 @@ type BookProps = {
 const Book = ({ book }: BookProps) => {
   const [showModal,setShowModal] = useState(false);
   const { data:session} = useSession();
-  const user = session?.user;
+  const user:any = session?.user;
   const router = useRouter();
+
+    // const startCheckout = async (bookId: number) => {
+    const startCheckout = async () => {
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            title: book.title,
+            price: book.price,
+            userId: user?.id,
+            bookId: book.id,
+          }),
+        }
+      );
+
+      const responseData = await response.json();
+
+      if (responseData && responseData.checkout_url) {
+        sessionStorage.setItem("stripeSessionId", responseData.session_id);
+
+        //チェックアウト後のURL遷移先
+        router.push(responseData.checkout_url);
+      } else {
+        console.error("Invalid response data:", responseData);
+      }
+
+
+
+    } catch (err) {
+      console.error("Error in startCheckout:", err);
+    //   // エラー時の処理
+    }
+  };
+
+
 
   const handlePurchaseClick = () => {
     setShowModal(true);
@@ -34,8 +72,9 @@ const Book = ({ book }: BookProps) => {
       router.push("/login")
     }else{
       // Stripeで決済する
+      startCheckout();
     }
-  }
+  };
 
   return (
     <>
