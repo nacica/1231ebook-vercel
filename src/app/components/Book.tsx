@@ -37,26 +37,24 @@ const Book = ({ book, isPurchased }: BookProps) => {
         }
       );
 
+
       const responseData = await response.json();
 
       if (responseData && responseData.checkout_url) {
         sessionStorage.setItem("stripeSessionId", responseData.session_id);
-
         //チェックアウト後のURL遷移先
         router.push(responseData.checkout_url);
+
+
       } else {
         console.error("Invalid response data:", responseData);
       }
-
-
 
     } catch (err) {
       console.error("Error in startCheckout:", err);
     //   // エラー時の処理
     }
   };
-
-
 
   const handlePurchaseClick = ()=>{
     if(isPurchased){
@@ -74,7 +72,7 @@ const Book = ({ book, isPurchased }: BookProps) => {
     if(!user){
       setShowModal(false);
       // ログインページへリダイレクト
-      router.push("/api/auth/singin");
+      router.push("/api/auth/signin");
     }else{
       // Stripeで決済する
       startCheckout();

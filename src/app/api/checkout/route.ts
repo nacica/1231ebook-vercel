@@ -35,7 +35,7 @@ export async function POST(request: Request, response: Response) {
 //       cancel_url: `${baseUrl}`,
     });
     return NextResponse.json({
-      checkout_url: session.url,
+      checkout_url: session.url
     });
   } catch (err: any) {
     // return NextResponse.json({err.message });
