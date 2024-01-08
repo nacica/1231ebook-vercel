@@ -36,7 +36,9 @@ const Book = ({ book, isPurchased }: BookProps) => {
           }),
         }
       );
-
+      console.log("stripe購入ボタンが反応しない。responseが返ってきてるか");
+      console.log(response);
+      
 
       const responseData = await response.json();
 
@@ -72,7 +74,7 @@ const Book = ({ book, isPurchased }: BookProps) => {
     if(!user){
       setShowModal(false);
       // ログインページへリダイレクト
-      router.push("/auth/signin");
+      router.push("/login");
     }else{
       // Stripeで決済する
       startCheckout();
