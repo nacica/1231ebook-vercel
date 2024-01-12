@@ -52,6 +52,7 @@ const Book = ({ book, isPurchased }: BookProps) => {
         console.log("stripe購入ボタンが反応しない。responseが返ってきてるか");
         console.log(response);
         console.log("responseの中身");
+        console.log("responseの中身");
         
       } catch (err) {
         console.error("Error in startCheckout:", err);
