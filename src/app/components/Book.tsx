@@ -49,11 +49,11 @@ const Book = ({ book, isPurchased }: BookProps) => {
         } else {
           console.error("Invalid response data:", responseData);
         }
-        console.log("stripe購入ボタンが反応しない。responseが返ってきてるか");
-        console.log(response);
-        console.log("responseの中身");
-        console.log("responseの中身");
-        
+        console.log("responseDataの中身確認");
+        console.log(responseData);
+        console.log("responseDataの内容確認");
+
+
       } catch (err) {
         console.error("Error in startCheckout:", err);
         //   // エラー時の処理
