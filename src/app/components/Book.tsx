@@ -35,36 +35,37 @@ const Book = ({ book, isPurchased }: BookProps) => {
             bookId: book.id,
           }),
         }
-      );
-      console.log("stripe購入ボタンが反応しない。responseが返ってきてるか");
-      console.log(response);
-      
-
-      const responseData = await response.json();
-
-      if (responseData && responseData.checkout_url) {
-        sessionStorage.setItem("stripeSessionId", responseData.session_id);
-        //チェックアウト後のURL遷移先
-        router.push(responseData.checkout_url);
-
-
-      } else {
-        console.error("Invalid response data:", responseData);
+        );
+        
+        
+        const responseData = await response.json();
+        
+        if (responseData && responseData.checkout_url) {
+          sessionStorage.setItem("stripeSessionId", responseData.session_id);
+          //チェックアウト後のURL遷移先
+          router.push(responseData.checkout_url);
+          
+          
+        } else {
+          console.error("Invalid response data:", responseData);
+        }
+        console.log("stripe購入ボタンが反応しない。responseが返ってきてるか");
+        console.log(response);
+        console.log("responseの中身");
+        
+      } catch (err) {
+        console.error("Error in startCheckout:", err);
+        //   // エラー時の処理
       }
-
-    } catch (err) {
-      console.error("Error in startCheckout:", err);
-    //   // エラー時の処理
-    }
-  };
-
-  const handlePurchaseClick = ()=>{
-    if(isPurchased){
-      alert("その商品は購入済みです");
-    } else{
-      setShowModal(true);
-    }
-  };
+    };
+    
+    const handlePurchaseClick = ()=>{
+      if(isPurchased){
+        alert("その商品は購入済みです");
+      } else{
+        setShowModal(true);
+      }
+    };
 
   const handleCancel = () =>{
     setShowModal(false);
