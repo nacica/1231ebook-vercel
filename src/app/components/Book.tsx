@@ -37,6 +37,9 @@ const Book = ({ book, isPurchased }: BookProps) => {
         }
         );
         
+        console.log("responseの中身確認");
+        console.log(response);
+        console.log("responseの内容確認");
         
         const responseData = await response.json();
         
