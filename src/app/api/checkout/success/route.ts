@@ -12,11 +12,14 @@ export async function POST(request: Request, response: Response) {
 
   try {
     const session = await stripe.checkout.sessions.retrieve(sessionId);
-//     console.log(session.metadata?.bookId); //{}
-//     console.log(session.client_reference_id!);
+        console.log("sessionの取得"); //{}    
+        console.log(session); //{}    
+        console.log("sessionの取得"); //{}    
+    //     console.log(session.metadata?.bookId); //{}
+    //     console.log(session.client_reference_id!);
 
     const existingPurchase = await prisma.purchase.findFirst({
-      where: {
+    where: {
         userId: session.client_reference_id!,
         bookId: session.metadata?.bookId!,
       },
