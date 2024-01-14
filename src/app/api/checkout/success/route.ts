@@ -42,11 +42,3 @@ export async function POST(request: Request, response: Response) {
     return NextResponse.json({ message: err.message });
   }
 }
-
-async function logSession(session: any) {
-  return new Promise<void>((resolve) => {
-      console.log("sessionの取得");
-      console.log(session);
-      console.log("sessionの取得");
-      resolve();
-  });}
