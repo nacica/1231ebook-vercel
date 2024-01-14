@@ -7,11 +7,11 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 // 購入履歴の保存
 export async function POST(request: Request, response: Response) {
-  const { aaa } = await request.json();
+  const { sessionId } = await request.json();
 //   // console.log(sessionId);
 
   try {
-    const session = await stripe.checkout.sessions.retrieve(aaa);
+    const session = await stripe.checkout.sessions.retrieve(sessionId);
         console.log("sessionの取得");   
         console.log(session); 
         console.log("sessionの取得");     
