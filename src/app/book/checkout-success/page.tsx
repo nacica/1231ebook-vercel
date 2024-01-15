@@ -1,3 +1,4 @@
+// P3
 "use client";
 
 import React from "react";
@@ -23,15 +24,17 @@ const PurchaseSuccess = () => {
         console.log("checkout-successのsessionIdの中身");
         try {
           const response = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/checkout/success`,
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ sessionId }),
-            }
-          );
+                                      `${process.env.NEXT_PUBLIC_API_URL}/checkout/success`,
+                                      {
+                                        method: "POST",
+                                        headers: { "Content-Type": "application/json" },
+                                        body: JSON.stringify({ sessionId }),
+                                      }
+                                    );
           const data = await response.json();
-  //         console.log(data);
+          console.log("const data = await response.json();のdataの中身");
+          console.log(data);
+          console.log("const data = await response.json();のdataの中身");
           setBookUrl(data.purchase.bookId);
         } catch (error) {
           console.error("Error fetching data: ", error);
