@@ -1,12 +1,5 @@
 {
 
-    "routes": [
-        {
-          "src": "/(.*)",
-          "destination": "/"
-        }
-      ],
-
     "headers": [
       {
         "source": "/_next/data/(.*)",
