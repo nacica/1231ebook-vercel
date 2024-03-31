@@ -7,6 +7,7 @@ import { Suspense } from 'react'
 import Loading from "./loading";
 
 
+
 const notoSansJP = Noto_Sans_JP({ subsets: ['latin'] , weight:["400"]})
 
 export const metadata: Metadata = {

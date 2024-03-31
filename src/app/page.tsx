@@ -12,6 +12,9 @@ export default async function Home() {
   const {contents} = await getAllBooks();
   const session = await getServerSession(nextAuthOptions);
   const user = session?.user as User;
+      console.log("33333333333333333333333333333333333333");
+      console.log(contents);
+      console.log("4444444444444444444444444444444444444");
 
   let purchasedBookIds:string[]=[];
 

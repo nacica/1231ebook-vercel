@@ -36,7 +36,9 @@ const Book = ({ book, isPurchased }: BookProps) => {
           }),
         }
       );
-
+      console.log("stripe購入ボタンが反応しない。responseが返ってきてるか");
+      console.log(response);
+      
 
       const responseData = await response.json();
 
@@ -72,7 +74,7 @@ const Book = ({ book, isPurchased }: BookProps) => {
     if(!user){
       setShowModal(false);
       // ログインページへリダイレクト
-      router.push("/auth/signin");
+      router.push("/login");
     }else{
       // Stripeで決済する
       startCheckout();
@@ -98,7 +100,7 @@ const Book = ({ book, isPurchased }: BookProps) => {
         }
       `}</style>
 
-      <div className="flex flex-col items-center m-4">
+      <div className="flex flex-col items-center m-7 mt-20">
         <a 
         onClick={handlePurchaseClick} 
         className="cursor-pointer shadow-2xl duration-300 hover:translate-y-1 hover:shadow-none"
@@ -112,10 +114,10 @@ const Book = ({ book, isPurchased }: BookProps) => {
             className="rounded-t-md"
           />
           
-          <div className="px-4 py-4 bg-slate-100 rounded-b-md">
-            <h2 className="text-lg font-semibold">{book.title}</h2>
-            <p className="mt-2 text-lg text-slate-600">この本は○○...</p>
-            <p className="mt-2 text-md text-slate-700">値段：{book.price}</p>
+          <div className="px-4 py-10 bg-slate-100 rounded-b-md">
+            <h2 className="text-2xl font-semibold">{book.title}</h2>
+            <p className="mt-10 text-lg text-slate-600">この本は○○...</p>
+            <p className="mt-2 text-md text-slate-700">値段：{book.price}円</p>
           </div>
         </a>
 

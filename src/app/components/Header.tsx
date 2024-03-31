@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -9,14 +9,19 @@ import { nextAuthOptions } from "../lib/next-auth/options";
 import { User } from "../types/types";
 
 
-const Header = async() => {
+// const Header = async() => {
+const Header = () => {
   
-  const session = await getServerSession(nextAuthOptions);
-  const user = session?.user as User;
+  // const session = await getServerSession(nextAuthOptions);
+  // const user = session?.user as User;
    
-  // const {data:session}= useSession();
-  // const user = session?.user;
-  // console.log(user); 
+  const {data:session}= useSession();
+  // これを使うと正常ログインできる。
+  const user = session?.user;
+
+  console.log("nextauthユーザーデータ1"); 
+  console.log(user); 
+  console.log("nextauthユーザーデータ2"); 
 
   return (
     <header className="bg-slate-600 text-gray-100 shadow-lg">
