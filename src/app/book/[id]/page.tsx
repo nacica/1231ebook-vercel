@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 
 const DetailBook = async ({ params }: { params: { id: string } }) => {
   const book = await getDetailBook(params.id);
-  const contentWithLineBreaks = book.content.replace(/\n/g, '<br>');
+  const contentWithLineBreaks = book.content.replace(/\n/g, '<br />');
 
   return (
     <div className="container mx-auto p-4 flex justify-center items-center">
