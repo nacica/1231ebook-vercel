@@ -1,4 +1,7 @@
 {
+
+    "rewrites": [{ "source": "/(.*)", "destination": "/" }] ,
+
     "headers": [
       {
         "source": "/_next/data/(.*)",
