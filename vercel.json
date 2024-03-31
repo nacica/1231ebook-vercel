@@ -1,6 +1,11 @@
 {
 
-    "routes": [{ "src": "/(.*)", "destination": "/" }] ,
+    "routes": [
+        {
+          "src": "/(.*)",
+          "destination": "/"
+        }
+      ],
 
     "headers": [
       {
