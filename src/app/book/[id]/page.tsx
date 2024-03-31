@@ -13,8 +13,8 @@ const DetailBook = async ({ params }: { params: { id: string } }) => {
           className="w-full h-80 object-cover object-center"
           src={book.thumbnail.url}
           alt={book.title}
-          width={700}
-          height={700}
+          width={400}
+          // height={700}
         />
         <div className="p-4">
           <h2 className="text-2xl font-bold">{book.title}</h2>
