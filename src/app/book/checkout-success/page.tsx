@@ -11,7 +11,8 @@ import { useState } from "react";
 const PurchaseSuccess = () => {
 
   const [bookUrl, setBookUrl] = useState(null);
-
+  
+  
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("session_id");
 
@@ -55,7 +56,7 @@ const PurchaseSuccess = () => {
         </p>
         <div className="mt-6 text-center">
           <Link
-            href={`book/${bookUrl}`}
+            href={`${bookUrl}`}
             className="text-indigo-600 hover:text-indigo-800 transition duration-300"
           >
             購入した記事を読む
