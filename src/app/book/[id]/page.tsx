@@ -5,6 +5,7 @@ import React, { useEffect } from "react";
 
 const DetailBook = async ({ params }: { params: { id: string } }) => {
   const book = await getDetailBook(params.id);
+  const contentWithLineBreaks = book.content.replace(/\n/g, '<br>');
 
   return (
     <div className="container mx-auto p-4 flex justify-center items-center">
@@ -19,9 +20,11 @@ const DetailBook = async ({ params }: { params: { id: string } }) => {
         />
         <div className="p-4">
           <h2 className="text-2xl font-bold">{book.title}</h2>
+
           <div
             className="text-gray-700 mt-2"
-            dangerouslySetInnerHTML={{ __html: book.content }}
+            // dangerouslySetInnerHTML={{ __html: book.content }}
+            dangerouslySetInnerHTML={{ __html: contentWithLineBreaks }} 
           />
 
           <div className="flex justify-between items-center mt-2">
