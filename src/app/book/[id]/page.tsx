@@ -8,7 +8,7 @@ const DetailBook = async ({ params }: { params: { id: string } }) => {
 
   return (
     <div className="container mx-auto p-4 flex justify-center items-center">
-      <div className="w-120 bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="w-1/4 bg-white shadow-lg rounded-lg overflow-hidden">
         <Image
           className="w-200 h-80 object-cover object-center mx-auto"
           // className="w-full h-80 object-cover object-center"
